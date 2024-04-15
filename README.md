@@ -1,7 +1,7 @@
 Comments in Catalan (my native lenguage), code in English.
 
 # AnimationWorld
-A web application using LAMP technology (Linux, Apache, MySQL, and PHP) that allows querying information about animated characters.
+A web app using LAMP technology (Linux, Apache, MySQL, and PHP) that allows querying information about animated characters.
 
 Contain four sections:
 
