@@ -33,7 +33,7 @@ $sql = "INSERT INTO cartoonist (nom, familyname, country) VALUES ('$Name', '$Fam
 if (mysqli_query($link, $sql)) {
     echo "Camps inserits correctament </br>";
 } else {
-    echo "Camp no inserits: " . mysqli_error($link);
+    echo "Camps no inserits: " . mysqli_error($link);
 }
 
 mysqli_close($link); 
