@@ -20,14 +20,14 @@
 
 echo 'Connectat amb èxit </br>';
 
-//Agafo amb post el valor dels camps del formulari html i ho guardo a les variables que estic creant 
+// Agafo amb post el valor dels camps del formulari html i ho guardo a les variables que estic creant 
 
 $Name = $_POST["Name"];
 $Year = $_POST["Year"];
 $Director = $_POST["Director/Productor"];
 $Genere = $_POST["Genere"];
 
-//ara insereixo els valors del formulari a la taula de la base de dades, s'insereix per nom de variable
+// Ara insereixo els valors del formulari a la taula de la base de dades, s'insereix per nom de variable
 
 $sql = "INSERT INTO film (name, year, director, genre) VALUES ('$Name', '$Year', '$Director', '$Genere')"; 
 
