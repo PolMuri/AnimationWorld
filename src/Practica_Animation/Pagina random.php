@@ -20,7 +20,7 @@
     $sql = "SELECT nom, img FROM cartoon ORDER BY RAND() LIMIT 1";
     $resultat = mysqli_query($link, $sql);
 
-    // Mostra el nom i la imatge del cartoon a l'HTML
+    // Mostro el nom i la imatge del cartoon a l'HTML
   
         $fila = mysqli_fetch_assoc($resultat);
         $img = $fila['img'];
@@ -32,7 +32,7 @@
 		echo "<a href='cartoon.php'><button>Home</button></a>";
 		
 	
-    // Tanca la connexió a la base de dades
+    // Tanco la connexió a la base de dades
     mysqli_close($link);
 ?>
     </body>
