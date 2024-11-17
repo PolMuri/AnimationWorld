@@ -32,8 +32,8 @@ $sqlLlistaCartoons = "SELECT nom, img FROM cartoon";
 $resultatLlistaCartoons = mysqli_query($link, $sqlLlistaCartoons);
 	
 
-//selecciono l'ID a més a més del nom tant a cartoonist com a film, així al select
-//hi poso que es vegi el nom del film o cartoonist, i internament hi poso l'id
+// Selecciono l'ID a més a més del nom tant a cartoonist com a film, així al select
+// hi poso que es vegi el nom del film o cartoonist, i internament hi poso l'id
 $sql2 = "SELECT nom, familyname, id FROM cartoonist";
 $resultatCartoonist = mysqli_query($link, $sql2);
 
@@ -52,7 +52,7 @@ echo "</br>";
 
 
 
-//CERCADOR DE CARTOONS   
+// CERCADOR DE CARTOONS   
 echo "<fieldset>";
 echo "<legend>Find Cartoon</legend>";
 echo "<form action='cartoon_list.php' method='post'>";
@@ -80,7 +80,7 @@ while ($row = mysqli_fetch_assoc($resultatCartoonist)) {
 }
 echo "</select></p>";
 echo "<p>Image: <input type='file' id='Image' name='Image' required></p>";
-//Codi per processar la imatge que puja l'usuari i guardar-la al servidor
+// Processo la imatge que puja l'usuari i la guardo al servidor
 // Si s'ha pujat una imatge
     // Si s'ha enviat el formulari per afegir un cartoon, processo la imatge
 if(isset($_POST['Name'])) {
@@ -101,7 +101,7 @@ if(isset($_POST['Name'])) {
     } else {
         echo "Només es permeten fitxers d'imatge amb extensió: jpg, jpeg, png i gif";
     }
-	//Formulari afegir Cartoon
+	// Formulari per afegir Cartoon
 $Name = $_POST["Name"];
 $Cartoonist = $_POST['Cartoonist'];
 $Film = $_POST['Film'];
@@ -110,7 +110,7 @@ echo $Cartoonist;
 echo $Film;
 echo $nomFitxer;
 
-//L'inserció del cartoon amb l'enviament del formulari
+// L'inserció del cartoon amb l'enviament del formulari
 $sql1 = "INSERT INTO cartoon (nom, cartoonist, img, film) VALUES ('$Name', $Cartoonist, '$nomFitxer', $Film)";
 if (mysqli_query($link, $sql1)) {
     echo "Camps inserits correctament </br>";
@@ -120,7 +120,7 @@ if (mysqli_query($link, $sql1)) {
 }
 
 echo "<p>Film: <select id='Film' name='Film' style='width: 20%;'>";
-// Recorre els resultats de la consulta i crea una opció per a cada dibuixant
+// Recorro els resultats de la consulta i creo una opció per a cada dibuixant
 while ($row = mysqli_fetch_assoc($resultatFilm)) {
     $nomFilm = $row['name'];
 	$idFilm = $row['id'];
@@ -132,24 +132,24 @@ echo "</form>";
 echo "</fieldset>";
 
 
-//LA LLISTA DE CARTOONS
+// LA LLISTA DE CARTOONS
 echo "<h2>List of cartoons</h2>";
 echo "<fieldset>";
 echo "<legend>Cartoon list</legend>";
-// Mostra el nom i la imatge dels cartoon a l'HTML 
+// Mostro el nom i la imatge dels cartoon a l'HTML 
 $sqlLlistaCartoons = "SELECT nom, img FROM cartoon";
 $resultatLlistaCartoons = mysqli_query($link, $sqlLlistaCartoons); 
-//La barra per fer scroll
+// La barra per fer scroll
 echo "<div style='overflow-y: scroll; height: 500px;'>";
 echo "<table>";
 echo "<thead><tr width='auto' height='100px' style='font-size: 14px; text-align: left';><th><b>Cartoon name</b></th><th><b>Image</b></th></tr></thead>";
 echo "<tr><td colspan='2'><hr></td></tr>";
 echo "<tbody>";
 
-//Guardo el resultat de la consulta SQL a la variable row, mentre hi ha resultats faig això
-//així pinto tots els cartoon que hi ha
+// Guardo el resultat de la consulta SQL a la variable row, mentre hi ha resultats faig això
+// així pinto tots els cartoon que hi ha
 while ($row = mysqli_fetch_assoc($resultatLlistaCartoons)) {
-	//La variable és un array, per això és seleccionen les diferents columnes de la BBDD igual que els elements d'un array.
+	// La variable és un array, per això és seleccionen les diferents columnes de la BBDD igual que els elements d'un array.
     $nom = $row['nom'];
     $ruta_imatge = './Imatges/' . $row['img'];
     echo "<tr><td style='width: 10%'>" . $nom . "</td><td style='width: 10%'><img src='" . $ruta_imatge . "' alt='Cartoon Image' style='width:10%'></td></tr>";
@@ -157,7 +157,7 @@ while ($row = mysqli_fetch_assoc($resultatLlistaCartoons)) {
 echo "</tbody>";
 echo "</table>";		
 echo "</fieldset>";
-//Tanco la connexió amb la BBDD
+// Tanco la connexió amb la BBDD
 mysqli_close($link); 
 
 ?>
